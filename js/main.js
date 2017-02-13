@@ -7,52 +7,165 @@ function createMap(){
     });
         
     //Create a tile layer
-    L.tileLayer('http://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-        attribution: 'Map data: &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
-    }).addTo(map);
+    L.tileLayer('https://api.mapbox.com/styles/v1/cjscheele/ciz33yu8t00332sprm6kyrjxo/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2pzY2hlZWxlIiwiYSI6ImNpajh4djdscDAwMjB1bWx4Z3c4eGxwZGcifQ.SsInFC_hOJv95SYpnT7w4Q'
+    ).addTo(map);
     
     //call getData function
     getData(map);
 };
 
-function onEachFeature(feature, layer) {
-    //no property named popupContent; instead, create html string with all properties
-    var popupContent = "";
-    if (feature.properties) {
-        //loop to add feature property names and values to html string
-        for (var property in feature.properties){
-            popupContent += "<p>" + property + ": " + feature.properties[property] + "</p>";
-        }
-        layer.bindPopup(popupContent);
-    };
-};
-
-//function to retrieve the data and place it on the map
+//Import GeoJSON data
 function getData(map){
     //load the data
-    $.ajax("data/airports.geojson", {
+    $.ajax("data/ports.geojson", {
         dataType: "json",
         success: function(response){
-            var geojsonMarkerOptions = {
-                radius: 8,
-                fillColor: "#3c50e8",
-                color: "#2a2b30",
-                weight: 1,
-                opacity: 1,
-                fillOpacity: 0.8
-            };
-            //create a Leaflet GeoJSON layer and add it to the map
-            L.geoJson(response, {
-                //Add points as circles
-                pointToLayer: function (feature, latlng){
-                    return L.circleMarker(latlng, geojsonMarkerOptions);
-                },
-                //use filter function to only show cities with 2015 populations greater than 20 million
-//                filter: function(feature, layer) {
-//                    return feature.properties.Pop_2015 > 20;
-//                }
-            }).addTo(map);
+            //create an attributes array
+            var attributes = ["total2005","total2006","total2007","total2008","total2009","total2010","total2011","total2012","total2013","total2014"]
+
+            createPropSymbols(response, map, attributes);
+            createSequenceControls(map, attributes);
         }
+    });
+};
+
+//Add circle markers for point features to the map
+function createPropSymbols(data, map, attributes){
+    //create a Leaflet GeoJSON layer and add it to the map
+    L.geoJson(data, {
+        pointToLayer: function(feature, latlng){
+            return pointToLayer(feature, latlng, attributes);
+        }
+    }).addTo(map);
+};
+
+//Convert markers to circle markers
+function pointToLayer(feature, latlng, attributes){
+    //assign the current attribute based on the first index of the attributes array
+    var attribute = attributes[0];
+
+    //create marker options
+    var options = {
+        fillColor: "#ff7800",
+        color: "#000",
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 0.8
+    };
+
+    //for each feature, determine its value for the selected attribute
+    var attValue = Number(feature.properties[attribute]);
+
+    //give each feature's circle marker a radius based on its attribute value
+    options.radius = calcPropRadius(attValue);
+
+    //create circle marker layer
+    var layer = L.circleMarker(latlng, options);
+
+    //build popup content string
+    var year = attribute.split("total")[1];
+    var popupContent = "<p><b>Port of " + feature.properties.port + "</b></p>";
+    popupContent +="<p><b>-"+year+"-</b><br>";
+    popupContent += "<b>Container Traffic: </b>"+feature.properties[attribute]+" TEUs </p>";
+
+    //bind the popup to the circle marker
+    layer.bindPopup(popupContent, {
+        offset: new L.Point(0,-options.radius) 
+    });
+
+    //event listeners to open popup on hover
+    layer.on({
+        mouseover: function(){
+            this.openPopup();
+        },
+        mouseout: function(){
+            this.closePopup();
+        }
+    });
+
+    //return the circle marker to the L.geoJson pointToLayer option
+    return layer;
+};
+
+//Calculate the radius of each proportional symbol
+function calcPropRadius(attValue) {
+    //scale factor to adjust symbol size evenly
+    var scaleFactor = .1;
+    //area based on attribute value and scale factor
+    var area = attValue * scaleFactor;
+    //radius calculated based on area
+    var radius = Math.sqrt(area/Math.PI);
+
+    return radius;
+};
+
+//Create new sequence controls
+function createSequenceControls(map,attributes){
+    //create range input element (slider)
+    $('#panel').append('<input class="range-slider" type="range">');
+
+     //set slider attributes
+    $('.range-slider').attr({
+        max: 10,
+        min: 0,
+        value: 0,
+        step: 1
+    });
+
+    $('#panel').append('<button class="skip" id="reverse">Reverse</button>');
+    $('#panel').append('<button class="skip" id="forward">Skip</button>');
+
+    //click listener for buttons
+    $('.skip').click(function(){
+        //get the old index value
+        var index = $('.range-slider').val();
+
+        //increment or decrement depending on button clicked
+        if ($(this).attr('id') == 'forward'){
+            index++;
+            //if past the last attribute, wrap around to first attribute
+            index = index > 10 ? 0 : index;
+        } else if ($(this).attr('id') == 'reverse'){
+            index--;
+            //if past the first attribute, wrap around to last attribute
+            index = index < 0 ? 10 : index;
+        };
+
+        //update slider
+        $('.range-slider').val(index);
+        updatePropSymbols(map, attributes[index]);
+    });
+
+    //input listener for slider
+    $('.range-slider').on('input', function(){
+        //get the new index value
+        var index = $(this).val();
+        updatePropSymbols(map, attributes[index]);
+    });
+};
+
+//Resize proportional symbols according to new attribute values
+function updatePropSymbols(map, attribute){
+    map.eachLayer(function(layer){
+        if (layer.feature && layer.feature.properties[attribute]){
+            //access feature properties
+            var props = layer.feature.properties;
+
+            //update each feature's radius based on new attribute values
+            var radius = calcPropRadius(props[attribute]);
+            layer.setRadius(radius);
+
+            //add city to popup content string
+            var year = attribute.split("total");
+            var popupContent = "<p><b>Port of " + layer.feature.properties.port + "</b></p>";
+            popupContent +="<p><b>-"+year+"-</b><br>";
+            popupContent += "<b>Container Traffic: </b>"+layer.feature.properties[attribute]+" TEUs </p>";
+
+            //replace the layer popup
+            layer.bindPopup(popupContent, {
+                offset: new L.Point(0,-radius)
+            });
+        };
     });
 };
 

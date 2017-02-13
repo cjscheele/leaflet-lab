@@ -1,0 +1,46 @@
+port,country,lat,lng,wiki,total2014,total2013,total2012,total2011,total2010,total2009,total2008,total2007,total2006,total2005
+Shanghai,China,30.6265,122.0647,https://en.wikipedia.org/wiki/Port_of_Shanghai,35268,33617,32529,31700,29069,25002,27980,26150,21710,18084
+Singapore,Singapore,1.264,103.84,https://en.wikipedia.org/wiki/Port_of_Singapore,33869,32240,31649,29937,28431,25866,29918,27932,24792,23192
+Shenzhen,China,22.5,113.8833,https://en.wikipedia.org/wiki/Port_of_Shenzhen,23798,23280,22940,22570,22510,18250,21414,21099,18469,16197
+Hong Kong,China,22.3333,114.1167,https://en.wikipedia.org/wiki/Port_of_Hong_Kong,22374,22352,23117,24384,23532,20983,24248,23881,23539,22427
+Ningbo-Zhoushan,China,29.8667,121.55,https://en.wikipedia.org/wiki/Port_of_Ningbo-Zhoushan,19450,17351,16670,14686,13144,10502,11226,9349,7068,5208
+Busan,South Korea,35.1039,129.0789,https://en.wikipedia.org/wiki/Port_of_Busan,18423,17690,17046,16185,14157,11954,13425,13270,12039,11843
+Qingdao,China,36.0833,120.317,https://en.wikipedia.org/wiki/Qingdao_Port,16624,15520,14503,13020,12012,10260,10320,9462,7702,6307
+Guangzhou,China,23.0939,113.4378,https://en.wikipedia.org/wiki/Port_of_Guangzhou,16160,15309,14744,14400,12550,11190,11001,9200,6600,4685
+Jebel Ali,United Arab Emirates,25.0113,55.0612,https://en.wikipedia.org/wiki/Port_of_Jebel_Ali,14750,13641,13270,13000,11600,11124,11827,10653,8923,7619
+Tianjin,China,38.9758,117.7875,https://en.wikipedia.org/wiki/Port_of_Tianjin,14050,13010,12300,11500,10080,8700,8500,7103,5950,4801
+Rotterdam,Netherlands,51.952549,4.046374,https://en.wikipedia.org/wiki/Port_of_Rotterdam,12453,11621,11866,11877,11146,9743,10784,10791,9655,9287
+Port Klang,Malaysia,2.9333,101.2975,https://en.wikipedia.org/wiki/Port_Klang,10736,10350,10000,9604,8870,7309,7970,7120,6326,5544
+Kaohsiung,Taiwan,22.6133,120.2792,https://en.wikipedia.org/wiki/Port_of_Kaohsiung,10593,9938,9781,9636,8872,8581,9677,10257,9775,9471
+Dalian,China,38.9166,121.6833,https://en.wikipedia.org/wiki/Port_of_Dalian,10128,10860,8060,6400,5242,4552,4503,4574,3212,2665
+Hamburg,Germany,53.5461,9.9661,https://en.wikipedia.org/wiki/Port_of_Hamburg,9729,9302,8864,9022,7900,7007,9737,9890,8862,8088
+Antwerp,Belgium,51.27,4.3366,https://en.wikipedia.org/wiki/Port_of_Antwerp,9136,8578,8635,8664,8468,7309,8663,8176,7019,6482
+Xiamen,China,24.5022,118.0845,https://en.wikipedia.org/wiki/Port_of_Xiamen,8572,8010,7202,6461,5820,4680,5035,4627,4019,3342
+Los Angeles,United States,33.7291,-118.262,https://en.wikipedia.org/wiki/Port_of_Los_Angeles,8340,7869,8078,7941,7832,6748,7850,8355,8470,7485
+Tanjung Pelepas,Malaysia,1.3663,103.5483,https://en.wikipedia.org/wiki/Port_of_Tanjung_Pelepas,7897,7628,7700,7500,6530,6000,5600,5500,4770,4177
+Long Beach,United States,33.7541,-118.2164,https://en.wikipedia.org/wiki/Port_of_Long_Beach,6821,6731,6046,6061,6263,5067,6350,7316,7289,6710
+Laem Chabang,Thailand,13.0617,100.895,https://en.wikipedia.org/wiki/Laem_Chabang,6518,6032,5830,5731,5068,4538,5134,4642,4123,3834
+Ho Chi Minh City,Vietnam,10.8225,106.754,https://en.wikipedia.org/wiki/Saigon_Port,6334,5542,5060,4674,4100,3563,3100,2532,2532,2122
+Bremerhaven,Germany,53.5671,8.5592,https://en.wikipedia.org/wiki/Bremerhaven#Trade,5796,5831,6115,5915,4871,4578,5529,4912,4450,3736
+New York and New Jersey,United States,40.6683,-74.0456,Port_of_New_York_and_New_Jersey,5772,5467,5530,5503,5292,4561,5265,5299,5093,4785
+Yingkou,China,40.2818,122.1239,https://en.wikipedia.org/wiki/Port_of_Yingkou,5768,5301,4851,4033,3338,2537,2030,1371,838,634
+Tanjung Priok,Indonesia,-6.104,106.8865,https://en.wikipedia.org/wiki/Port_of_Tanjung_Priok,5034,6590,6200,5618,4715,3800,3984,3900,3280,3282
+Lianyungang,China,34.7382,119.4427,https://en.wikipedia.org/wiki/Lianyungang#Port,5005,5490,5020,4850,3870,3021,3001,2001,1302,1005
+Tokyo,Japan,35.6169,139.7956,https://en.wikipedia.org/wiki/Port_of_Tokyo,4917,4861,4752,4640,4286,3810,4271,3818,3969,3593
+Mumbai,India,18.95,72.95,https://en.wikipedia.org/wiki/Jawaharlal_Nehru_Port,4496,4162,4260,4217,3857,4061,3953,4060,3298,2667
+Algeciras,Spain,36.136,-5.435,https://en.wikipedia.org/wiki/Port_of_Algeciras,4457,4501,4114,3603,2810,3042,3324,3152,3257,3180
+Valencia,Spain,39.4457,-0.3199,https://en.wikipedia.org/wiki/Port_of_Valencia,4442,4328,4470,4327,4207,3653,3593,3043,2612,2410
+Khor Fakkan,United Arab Emirates,25.3391,56.3561,https://en.wikipedia.org/wiki/Khor_Fakkan,4256,3800,3996,3230,3023,2750,2112,1850,1730,1929
+Jeddah,Saudi Arabia,21.5169,39.2192,https://en.wikipedia.org/wiki/Jeddah_Seaport,4200,4561,4738,4010,3830,3091,3326,3068,2964,2836
+Colombo,Sri Lanka,6.9528,79.8447,https://en.wikipedia.org/wiki/Colombo_Harbour,4097,4306,4180,4263,4137,3464,3687,3380,3079,2455
+Santos,Brazil,-23.9641,-46.2971,https://en.wikipedia.org/wiki/Port_of_Santos,3685,3446,3172,2985,2716,2252,2675,2533,2208,2240
+Felixstowe,United Kingdom,51.9529,1.3095,https://en.wikipedia.org/wiki/Port_of_Felixstowe,3680,3740,3700,3519,3400,3100,3200,3300,3000,2700
+Manila,Philippines,14.5967,120.9544,https://en.wikipedia.org/wiki/Port_of_Manila,3673,3770,3705,3250,3257,2815,2977,2800,2638,2625
+Savannah,United States,32.1287,-81.1519,https://en.wikipedia.org/wiki/Port_of_Savannah,3346,3034,2966,2945,2825,2356,2616,2604,2160,1902
+Balboa,Panama,8.95,-79.5667,"https://en.wikipedia.org/wiki/Balboa,_Panama#Port_of_Balboa",3236,3064,3251,3232,2759,2012,2011,2167,988,663
+Gioia Tauro,Italy,38.4333,15.9,https://en.wikipedia.org/wiki/Port_of_Gioia_Tauro,3062,3087,2721,2305,2851,2857,3468,3445,2900,3161
+Port Said,Egypt,31.2534,32.3121,https://en.wikipedia.org/wiki/Port_Said,3036,4100,3631,4272,3646,3300,3202,2127,2127,1522
+Salalah,Oman,16.9444,54.0075,https://en.wikipedia.org/wiki/Port_of_Salalah,3030,3340,3620,3201,3482,3490,3068,2600,2390,2492
+Vancouver,Canada,49.2978,-123.0888,https://en.wikipedia.org/wiki/Vancouver_Fraser_Port_Authority,2913,2825,2713,2551,2514,2492,2307,2208,1767,1665
+Yokohama,Japan,35.4492,139.6779,https://en.wikipedia.org/wiki/Port_of_Yokohama,2775,2888,3053,3083,3280,2555,3490,3400,3200,2873
+Nagoya,Japan,35.08,136.88,https://en.wikipedia.org/wiki/Port_of_Nagoya,2740,2709,2655,2623,2549,2113,2817,2890,2740,2470

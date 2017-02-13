@@ -1,0 +1,995 @@
+{
+   "type": "FeatureCollection",
+   "features": [
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 122.0647,30.6265 ]
+    },
+    "properties": {
+    "port":"Shanghai",
+    "country":"China",
+    "wiki":"https://en.wikipedia.org/wiki/Port_of_Shanghai",
+    "total2014":35268,
+    "total2013":33617,
+    "total2012":32529,
+    "total2011":31700,
+    "total2010":29069,
+    "total2009":25002,
+    "total2008":27980,
+    "total2007":26150,
+    "total2006":21710,
+    "total2005":18084
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 103.84,1.264 ]
+    },
+    "properties": {
+    "port":"Singapore",
+    "country":"Singapore",
+    "wiki":"https://en.wikipedia.org/wiki/Port_of_Singapore",
+    "total2014":33869,
+    "total2013":32240,
+    "total2012":31649,
+    "total2011":29937,
+    "total2010":28431,
+    "total2009":25866,
+    "total2008":29918,
+    "total2007":27932,
+    "total2006":24792,
+    "total2005":23192
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 113.8833,22.5 ]
+    },
+    "properties": {
+    "port":"Shenzhen",
+    "country":"China",
+    "wiki":"https://en.wikipedia.org/wiki/Port_of_Shenzhen",
+    "total2014":23798,
+    "total2013":23280,
+    "total2012":22940,
+    "total2011":22570,
+    "total2010":22510,
+    "total2009":18250,
+    "total2008":21414,
+    "total2007":21099,
+    "total2006":18469,
+    "total2005":16197
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 114.1167,22.3333 ]
+    },
+    "properties": {
+    "port":"Hong Kong",
+    "country":"China",
+    "wiki":"https://en.wikipedia.org/wiki/Port_of_Hong_Kong",
+    "total2014":22374,
+    "total2013":22352,
+    "total2012":23117,
+    "total2011":24384,
+    "total2010":23532,
+    "total2009":20983,
+    "total2008":24248,
+    "total2007":23881,
+    "total2006":23539,
+    "total2005":22427
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.55,29.8667 ]
+    },
+    "properties": {
+    "port":"Ningbo-Zhoushan",
+    "country":"China",
+    "wiki":"https://en.wikipedia.org/wiki/Port_of_Ningbo-Zhoushan",
+    "total2014":19450,
+    "total2013":17351,
+    "total2012":16670,
+    "total2011":14686,
+    "total2010":13144,
+    "total2009":10502,
+    "total2008":11226,
+    "total2007":9349,
+    "total2006":7068,
+    "total2005":5208
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 129.0789,35.1039 ]
+    },
+    "properties": {
+    "port":"Busan",
+    "country":"South Korea",
+    "wiki":"https://en.wikipedia.org/wiki/Port_of_Busan",
+    "total2014":18423,
+    "total2013":17690,
+    "total2012":17046,
+    "total2011":16185,
+    "total2010":14157,
+    "total2009":11954,
+    "total2008":13425,
+    "total2007":13270,
+    "total2006":12039,
+    "total2005":11843
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 120.317,36.0833 ]
+    },
+    "properties": {
+    "port":"Qingdao",
+    "country":"China",
+    "wiki":"https://en.wikipedia.org/wiki/Qingdao_Port",
+    "total2014":16624,
+    "total2013":15520,
+    "total2012":14503,
+    "total2011":13020,
+    "total2010":12012,
+    "total2009":10260,
+    "total2008":10320,
+    "total2007":9462,
+    "total2006":7702,
+    "total2005":6307
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 113.4378,23.0939 ]
+    },
+    "properties": {
+    "port":"Guangzhou",
+    "country":"China",
+    "wiki":"https://en.wikipedia.org/wiki/Port_of_Guangzhou",
+    "total2014":16160,
+    "total2013":15309,
+    "total2012":14744,
+    "total2011":14400,
+    "total2010":12550,
+    "total2009":11190,
+    "total2008":11001,
+    "total2007":9200,
+    "total2006":6600,
+    "total2005":4685
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 55.0612,25.0113 ]
+    },
+    "properties": {
+    "port":"Jebel Ali",
+    "country":"United Arab Emirates",
+    "wiki":"https://en.wikipedia.org/wiki/Port_of_Jebel_Ali",
+    "total2014":14750,
+    "total2013":13641,
+    "total2012":13270,
+    "total2011":13000,
+    "total2010":11600,
+    "total2009":11124,
+    "total2008":11827,
+    "total2007":10653,
+    "total2006":8923,
+    "total2005":7619
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 117.7875,38.9758 ]
+    },
+    "properties": {
+    "port":"Tianjin",
+    "country":"China",
+    "wiki":"https://en.wikipedia.org/wiki/Port_of_Tianjin",
+    "total2014":14050,
+    "total2013":13010,
+    "total2012":12300,
+    "total2011":11500,
+    "total2010":10080,
+    "total2009":8700,
+    "total2008":8500,
+    "total2007":7103,
+    "total2006":5950,
+    "total2005":4801
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 4.046374,51.952549 ]
+    },
+    "properties": {
+    "port":"Rotterdam",
+    "country":"Netherlands",
+    "wiki":"https://en.wikipedia.org/wiki/Port_of_Rotterdam",
+    "total2014":12453,
+    "total2013":11621,
+    "total2012":11866,
+    "total2011":11877,
+    "total2010":11146,
+    "total2009":9743,
+    "total2008":10784,
+    "total2007":10791,
+    "total2006":9655,
+    "total2005":9287
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 101.2975,2.9333 ]
+    },
+    "properties": {
+    "port":"Port Klang",
+    "country":"Malaysia",
+    "wiki":"https://en.wikipedia.org/wiki/Port_Klang",
+    "total2014":10736,
+    "total2013":10350,
+    "total2012":10000,
+    "total2011":9604,
+    "total2010":8870,
+    "total2009":7309,
+    "total2008":7970,
+    "total2007":7120,
+    "total2006":6326,
+    "total2005":5544
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 120.2792,22.6133 ]
+    },
+    "properties": {
+    "port":"Kaohsiung",
+    "country":"Taiwan",
+    "wiki":"https://en.wikipedia.org/wiki/Port_of_Kaohsiung",
+    "total2014":10593,
+    "total2013":9938,
+    "total2012":9781,
+    "total2011":9636,
+    "total2010":8872,
+    "total2009":8581,
+    "total2008":9677,
+    "total2007":10257,
+    "total2006":9775,
+    "total2005":9471
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.6833,38.9166 ]
+    },
+    "properties": {
+    "port":"Dalian",
+    "country":"China",
+    "wiki":"https://en.wikipedia.org/wiki/Port_of_Dalian",
+    "total2014":10128,
+    "total2013":10860,
+    "total2012":8060,
+    "total2011":6400,
+    "total2010":5242,
+    "total2009":4552,
+    "total2008":4503,
+    "total2007":4574,
+    "total2006":3212,
+    "total2005":2665
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 9.9661,53.5461 ]
+    },
+    "properties": {
+    "port":"Hamburg",
+    "country":"Germany",
+    "wiki":"https://en.wikipedia.org/wiki/Port_of_Hamburg",
+    "total2014":9729,
+    "total2013":9302,
+    "total2012":8864,
+    "total2011":9022,
+    "total2010":7900,
+    "total2009":7007,
+    "total2008":9737,
+    "total2007":9890,
+    "total2006":8862,
+    "total2005":8088
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 4.3366,51.27 ]
+    },
+    "properties": {
+    "port":"Antwerp",
+    "country":"Belgium",
+    "wiki":"https://en.wikipedia.org/wiki/Port_of_Antwerp",
+    "total2014":9136,
+    "total2013":8578,
+    "total2012":8635,
+    "total2011":8664,
+    "total2010":8468,
+    "total2009":7309,
+    "total2008":8663,
+    "total2007":8176,
+    "total2006":7019,
+    "total2005":6482
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 118.0845,24.5022 ]
+    },
+    "properties": {
+    "port":"Xiamen",
+    "country":"China",
+    "wiki":"https://en.wikipedia.org/wiki/Port_of_Xiamen",
+    "total2014":8572,
+    "total2013":8010,
+    "total2012":7202,
+    "total2011":6461,
+    "total2010":5820,
+    "total2009":4680,
+    "total2008":5035,
+    "total2007":4627,
+    "total2006":4019,
+    "total2005":3342
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -118.262,33.7291 ]
+    },
+    "properties": {
+    "port":"Los Angeles",
+    "country":"United States",
+    "wiki":"https://en.wikipedia.org/wiki/Port_of_Los_Angeles",
+    "total2014":8340,
+    "total2013":7869,
+    "total2012":8078,
+    "total2011":7941,
+    "total2010":7832,
+    "total2009":6748,
+    "total2008":7850,
+    "total2007":8355,
+    "total2006":8470,
+    "total2005":7485
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 103.5483,1.3663 ]
+    },
+    "properties": {
+    "port":"Tanjung Pelepas",
+    "country":"Malaysia",
+    "wiki":"https://en.wikipedia.org/wiki/Port_of_Tanjung_Pelepas",
+    "total2014":7897,
+    "total2013":7628,
+    "total2012":7700,
+    "total2011":7500,
+    "total2010":6530,
+    "total2009":6000,
+    "total2008":5600,
+    "total2007":5500,
+    "total2006":4770,
+    "total2005":4177
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -118.2164,33.7541 ]
+    },
+    "properties": {
+    "port":"Long Beach",
+    "country":"United States",
+    "wiki":"https://en.wikipedia.org/wiki/Port_of_Long_Beach",
+    "total2014":6821,
+    "total2013":6731,
+    "total2012":6046,
+    "total2011":6061,
+    "total2010":6263,
+    "total2009":5067,
+    "total2008":6350,
+    "total2007":7316,
+    "total2006":7289,
+    "total2005":6710
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 100.895,13.0617 ]
+    },
+    "properties": {
+    "port":"Laem Chabang",
+    "country":"Thailand",
+    "wiki":"https://en.wikipedia.org/wiki/Laem_Chabang",
+    "total2014":6518,
+    "total2013":6032,
+    "total2012":5830,
+    "total2011":5731,
+    "total2010":5068,
+    "total2009":4538,
+    "total2008":5134,
+    "total2007":4642,
+    "total2006":4123,
+    "total2005":3834
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 106.754,10.8225 ]
+    },
+    "properties": {
+    "port":"Ho Chi Minh City",
+    "country":"Vietnam",
+    "wiki":"https://en.wikipedia.org/wiki/Saigon_Port",
+    "total2014":6334,
+    "total2013":5542,
+    "total2012":5060,
+    "total2011":4674,
+    "total2010":4100,
+    "total2009":3563,
+    "total2008":3100,
+    "total2007":2532,
+    "total2006":2532,
+    "total2005":2122
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.5592,53.5671 ]
+    },
+    "properties": {
+    "port":"Bremerhaven",
+    "country":"Germany",
+    "wiki":"https://en.wikipedia.org/wiki/Bremerhaven#Trade",
+    "total2014":5796,
+    "total2013":5831,
+    "total2012":6115,
+    "total2011":5915,
+    "total2010":4871,
+    "total2009":4578,
+    "total2008":5529,
+    "total2007":4912,
+    "total2006":4450,
+    "total2005":3736
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -74.0456,40.6683 ]
+    },
+    "properties": {
+    "port":"New York and New Jersey",
+    "country":"United States",
+    "wiki":"Port_of_New_York_and_New_Jersey",
+    "total2014":5772,
+    "total2013":5467,
+    "total2012":5530,
+    "total2011":5503,
+    "total2010":5292,
+    "total2009":4561,
+    "total2008":5265,
+    "total2007":5299,
+    "total2006":5093,
+    "total2005":4785
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 122.1239,40.2818 ]
+    },
+    "properties": {
+    "port":"Yingkou",
+    "country":"China",
+    "wiki":"https://en.wikipedia.org/wiki/Port_of_Yingkou",
+    "total2014":5768,
+    "total2013":5301,
+    "total2012":4851,
+    "total2011":4033,
+    "total2010":3338,
+    "total2009":2537,
+    "total2008":2030,
+    "total2007":1371,
+    "total2006":838,
+    "total2005":634
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 106.8865,-6.104 ]
+    },
+    "properties": {
+    "port":"Tanjung Priok",
+    "country":"Indonesia",
+    "wiki":"https://en.wikipedia.org/wiki/Port_of_Tanjung_Priok",
+    "total2014":5034,
+    "total2013":6590,
+    "total2012":6200,
+    "total2011":5618,
+    "total2010":4715,
+    "total2009":3800,
+    "total2008":3984,
+    "total2007":3900,
+    "total2006":3280,
+    "total2005":3282
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 119.4427,34.7382 ]
+    },
+    "properties": {
+    "port":"Lianyungang",
+    "country":"China",
+    "wiki":"https://en.wikipedia.org/wiki/Lianyungang#Port",
+    "total2014":5005,
+    "total2013":5490,
+    "total2012":5020,
+    "total2011":4850,
+    "total2010":3870,
+    "total2009":3021,
+    "total2008":3001,
+    "total2007":2001,
+    "total2006":1302,
+    "total2005":1005
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 139.7956,35.6169 ]
+    },
+    "properties": {
+    "port":"Tokyo",
+    "country":"Japan",
+    "wiki":"https://en.wikipedia.org/wiki/Port_of_Tokyo",
+    "total2014":4917,
+    "total2013":4861,
+    "total2012":4752,
+    "total2011":4640,
+    "total2010":4286,
+    "total2009":3810,
+    "total2008":4271,
+    "total2007":3818,
+    "total2006":3969,
+    "total2005":3593
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 72.95,18.95 ]
+    },
+    "properties": {
+    "port":"Mumbai",
+    "country":"India",
+    "wiki":"https://en.wikipedia.org/wiki/Jawaharlal_Nehru_Port",
+    "total2014":4496,
+    "total2013":4162,
+    "total2012":4260,
+    "total2011":4217,
+    "total2010":3857,
+    "total2009":4061,
+    "total2008":3953,
+    "total2007":4060,
+    "total2006":3298,
+    "total2005":2667
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -5.435,36.136 ]
+    },
+    "properties": {
+    "port":"Algeciras",
+    "country":"Spain",
+    "wiki":"https://en.wikipedia.org/wiki/Port_of_Algeciras",
+    "total2014":4457,
+    "total2013":4501,
+    "total2012":4114,
+    "total2011":3603,
+    "total2010":2810,
+    "total2009":3042,
+    "total2008":3324,
+    "total2007":3152,
+    "total2006":3257,
+    "total2005":3180
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -0.3199,39.4457 ]
+    },
+    "properties": {
+    "port":"Valencia",
+    "country":"Spain",
+    "wiki":"https://en.wikipedia.org/wiki/Port_of_Valencia",
+    "total2014":4442,
+    "total2013":4328,
+    "total2012":4470,
+    "total2011":4327,
+    "total2010":4207,
+    "total2009":3653,
+    "total2008":3593,
+    "total2007":3043,
+    "total2006":2612,
+    "total2005":2410
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 56.3561,25.3391 ]
+    },
+    "properties": {
+    "port":"Khor Fakkan",
+    "country":"United Arab Emirates",
+    "wiki":"https://en.wikipedia.org/wiki/Khor_Fakkan",
+    "total2014":4256,
+    "total2013":3800,
+    "total2012":3996,
+    "total2011":3230,
+    "total2010":3023,
+    "total2009":2750,
+    "total2008":2112,
+    "total2007":1850,
+    "total2006":1730,
+    "total2005":1929
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 39.2192,21.5169 ]
+    },
+    "properties": {
+    "port":"Jeddah",
+    "country":"Saudi Arabia",
+    "wiki":"https://en.wikipedia.org/wiki/Jeddah_Seaport",
+    "total2014":4200,
+    "total2013":4561,
+    "total2012":4738,
+    "total2011":4010,
+    "total2010":3830,
+    "total2009":3091,
+    "total2008":3326,
+    "total2007":3068,
+    "total2006":2964,
+    "total2005":2836
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 79.8447,6.9528 ]
+    },
+    "properties": {
+    "port":"Colombo",
+    "country":"Sri Lanka",
+    "wiki":"https://en.wikipedia.org/wiki/Colombo_Harbour",
+    "total2014":4097,
+    "total2013":4306,
+    "total2012":4180,
+    "total2011":4263,
+    "total2010":4137,
+    "total2009":3464,
+    "total2008":3687,
+    "total2007":3380,
+    "total2006":3079,
+    "total2005":2455
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -46.2971,-23.9641 ]
+    },
+    "properties": {
+    "port":"Santos",
+    "country":"Brazil",
+    "wiki":"https://en.wikipedia.org/wiki/Port_of_Santos",
+    "total2014":3685,
+    "total2013":3446,
+    "total2012":3172,
+    "total2011":2985,
+    "total2010":2716,
+    "total2009":2252,
+    "total2008":2675,
+    "total2007":2533,
+    "total2006":2208,
+    "total2005":2240
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 1.3095,51.9529 ]
+    },
+    "properties": {
+    "port":"Felixstowe",
+    "country":"United Kingdom",
+    "wiki":"https://en.wikipedia.org/wiki/Port_of_Felixstowe",
+    "total2014":3680,
+    "total2013":3740,
+    "total2012":3700,
+    "total2011":3519,
+    "total2010":3400,
+    "total2009":3100,
+    "total2008":3200,
+    "total2007":3300,
+    "total2006":3000,
+    "total2005":2700
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 120.9544,14.5967 ]
+    },
+    "properties": {
+    "port":"Manila",
+    "country":"Philippines",
+    "wiki":"https://en.wikipedia.org/wiki/Port_of_Manila",
+    "total2014":3673,
+    "total2013":3770,
+    "total2012":3705,
+    "total2011":3250,
+    "total2010":3257,
+    "total2009":2815,
+    "total2008":2977,
+    "total2007":2800,
+    "total2006":2638,
+    "total2005":2625
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -81.1519,32.1287 ]
+    },
+    "properties": {
+    "port":"Savannah",
+    "country":"United States",
+    "wiki":"https://en.wikipedia.org/wiki/Port_of_Savannah",
+    "total2014":3346,
+    "total2013":3034,
+    "total2012":2966,
+    "total2011":2945,
+    "total2010":2825,
+    "total2009":2356,
+    "total2008":2616,
+    "total2007":2604,
+    "total2006":2160,
+    "total2005":1902
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -79.5667,8.95 ]
+    },
+    "properties": {
+    "port":"Balboa",
+    "country":"Panama",
+    "wiki":"https://en.wikipedia.org/wiki/Balboa,_Panama#Port_of_Balboa",
+    "total2014":3236,
+    "total2013":3064,
+    "total2012":3251,
+    "total2011":3232,
+    "total2010":2759,
+    "total2009":2012,
+    "total2008":2011,
+    "total2007":2167,
+    "total2006":988,
+    "total2005":663
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 15.9,38.4333 ]
+    },
+    "properties": {
+    "port":"Gioia Tauro",
+    "country":"Italy",
+    "wiki":"https://en.wikipedia.org/wiki/Port_of_Gioia_Tauro",
+    "total2014":3062,
+    "total2013":3087,
+    "total2012":2721,
+    "total2011":2305,
+    "total2010":2851,
+    "total2009":2857,
+    "total2008":3468,
+    "total2007":3445,
+    "total2006":2900,
+    "total2005":3161
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 32.3121,31.2534 ]
+    },
+    "properties": {
+    "port":"Port Said",
+    "country":"Egypt",
+    "wiki":"https://en.wikipedia.org/wiki/Port_Said",
+    "total2014":3036,
+    "total2013":4100,
+    "total2012":3631,
+    "total2011":4272,
+    "total2010":3646,
+    "total2009":3300,
+    "total2008":3202,
+    "total2007":2127,
+    "total2006":2127,
+    "total2005":1522
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 54.0075,16.9444 ]
+    },
+    "properties": {
+    "port":"Salalah",
+    "country":"Oman",
+    "wiki":"https://en.wikipedia.org/wiki/Port_of_Salalah",
+    "total2014":3030,
+    "total2013":3340,
+    "total2012":3620,
+    "total2011":3201,
+    "total2010":3482,
+    "total2009":3490,
+    "total2008":3068,
+    "total2007":2600,
+    "total2006":2390,
+    "total2005":2492
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -123.0888,49.2978 ]
+    },
+    "properties": {
+    "port":"Vancouver",
+    "country":"Canada",
+    "wiki":"https://en.wikipedia.org/wiki/Vancouver_Fraser_Port_Authority",
+    "total2014":2913,
+    "total2013":2825,
+    "total2012":2713,
+    "total2011":2551,
+    "total2010":2514,
+    "total2009":2492,
+    "total2008":2307,
+    "total2007":2208,
+    "total2006":1767,
+    "total2005":1665
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 139.6779,35.4492 ]
+    },
+    "properties": {
+    "port":"Yokohama",
+    "country":"Japan",
+    "wiki":"https://en.wikipedia.org/wiki/Port_of_Yokohama",
+    "total2014":2775,
+    "total2013":2888,
+    "total2012":3053,
+    "total2011":3083,
+    "total2010":3280,
+    "total2009":2555,
+    "total2008":3490,
+    "total2007":3400,
+    "total2006":3200,
+    "total2005":2873
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 136.88,35.08 ]
+    },
+    "properties": {
+    "port":"Nagoya",
+    "country":"Japan",
+    "wiki":"https://en.wikipedia.org/wiki/Port_of_Nagoya",
+    "total2014":2740,
+    "total2013":2709,
+    "total2012":2655,
+    "total2011":2623,
+    "total2010":2549,
+    "total2009":2113,
+    "total2008":2817,
+    "total2007":2890,
+    "total2006":2740,
+    "total2005":2470
+    }
+  }
+]
+}
