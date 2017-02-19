@@ -32,11 +32,28 @@ function getData(map){
 //Add circle markers for point features to the map
 function createPropSymbols(data, map, attributes){
     //create a Leaflet GeoJSON layer and add it to the map
-    L.geoJson(data, {
+    var markerLayer = L.geoJson(data, {
         pointToLayer: function(feature, latlng){
             return pointToLayer(feature, latlng, attributes);
         }
     }).addTo(map);
+
+    //Initialize Search Control
+    var searchControl = new L.Control.Search({
+        layer: markerLayer,
+        propertyName: 'port',
+        zoom: 8
+    });
+    searchControl.on('search:locationfound', function(e) {
+        e.layer.setStyle({fillColor: '#3f0', color: '#0f0'});
+        if(e.layer._popup)
+            e.layer.openPopup();
+    }).on('search:collapsed', function(e) {
+        markerLayer.eachLayer(function(layer) {   //restore feature color
+            markerLayer.resetStyle(layer);
+        }); 
+    });
+    map.addControl( searchControl );  //inizialize search control
 };
 
 //Convert markers to circle markers
