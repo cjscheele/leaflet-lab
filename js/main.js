@@ -40,11 +40,15 @@ function createPropSymbols(data, map, attributes){
 
     //Initialize Search Control
     var searchControl = new L.Control.Search({
+        marker: L.circleMarker([0,0],{radius:0,opacity:0}),
         layer: markerLayer,
         propertyName: 'port',
         zoom: 8
     });
     searchControl.on('search:locationfound', function(e) {
+        markerLayer.eachLayer(function(layer) {   //restore feature color
+            markerLayer.resetStyle(layer);
+        });
         e.layer.setStyle({fillColor: '#3f0', color: '#0f0'});
         if(e.layer._popup)
             e.layer.openPopup();
