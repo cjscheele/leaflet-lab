@@ -39,11 +39,29 @@ function createPropSymbols(data, map, attributes){
     }).addTo(map);
 
     //Initialize Search Control
+    var fuse = new Fuse(data.features, {
+            keys: ['properties.port','properties.country'],
+            threshold:.2,
+            tokenize: true,
+            matchAllTokens: true
+    });
+    console.log(fuse);
     var searchControl = new L.Control.Search({
         marker: L.circleMarker([0,0],{radius:0,opacity:0}),
         layer: markerLayer,
         propertyName: 'port',
-        zoom: 8
+        zoom: 8,
+        filterData: function(text, records) {
+            var jsons = fuse.search(text),
+                ret = {}, key;
+            
+            for(var i in jsons) {
+                key = jsons[i].properties.port;
+                ret[ key ]= records[key];
+            }
+            console.log(jsons,ret);
+            return ret;
+        }
     });
     searchControl.on('search:locationfound', function(e) {
         markerLayer.eachLayer(function(layer) {   //restore feature color
@@ -85,21 +103,23 @@ function pointToLayer(feature, latlng, attributes){
 
     //build popup content string
     var year = attribute.split("total")[1];
-    var popupContent = "<p><b>Port of " + feature.properties.port + "</b></p>";
-    popupContent +="<p><b>-"+year+"-</b><br>";
-    popupContent += "<b>Container Traffic: </b>"+feature.properties[attribute]+" TEUs </p>";
+    var popupContent = "<p>"+feature.properties[attribute]+" TEUs</p>";
 
     //bind the popup to the circle marker
     layer.bindPopup(popupContent, {
         offset: new L.Point(0,-options.radius) 
     });
 
+    //Add tooltip
+    layer.bindTooltip("Port of "+feature.properties.port)
+
     //event listeners to open popup on hover
     layer.on({
-        mouseover: function(){
+        click: function(){
             this.openPopup();
+            updatePanel(feature);
         },
-        mouseout: function(){
+        mouseover: function(){
             this.closePopup();
         }
     });
@@ -107,6 +127,18 @@ function pointToLayer(feature, latlng, attributes){
     //return the circle marker to the L.geoJson pointToLayer option
     return layer;
 };
+
+function updatePanel(feature){
+    var content = "<h1>Port of "+feature.properties.port+"</h1>";
+    content += "<div id='panelPic'><img src='"+feature.properties.img+"'></div>";
+    content += "<div id='panelDesc'><p>"+feature.properties.desc+"</p></div>";
+    content += "<div id='panelLink'>Source: <a href='"+feature.properties.wiki+"' target='_blank'>Wikipedia</a></div>";
+    $("#panel").empty().append(content);
+};
+
+function createGraph(feature){
+    var avg = [5475.444444,6107.422222,6929.044444,7337.066667,6680.844444,7660.244444,8291.733333,8651.177778,8926.044444,9231.977778];
+}
 
 //Calculate the radius of each proportional symbol
 function calcPropRadius(attValue) {
@@ -178,12 +210,10 @@ function updatePropSymbols(map, attribute){
 
             //add city to popup content string
             var year = attribute.split("total");
-            var popupContent = "<p><b>Port of " + layer.feature.properties.port + "</b></p>";
-            popupContent +="<p><b>-"+year+"-</b><br>";
-            popupContent += "<b>Container Traffic: </b>"+layer.feature.properties[attribute]+" TEUs </p>";
+            var popupContent = "<p>"+layer.feature.properties[attribute]+" TEUs</p>";
 
             //replace the layer popup
-            layer.bindPopup(popupContent, {
+            layer.setPopupContent(popupContent, {
                 offset: new L.Point(0,-radius)
             });
         };

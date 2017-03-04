@@ -1,16 +1,25 @@
+#mapTitle {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 #map {
-    height: 400px;
-    width: 80%;
+    height: 500px;
     display: inline-block;
 }
 
 #panel {
-    width: 26%;
     padding: 20px;
     display: inline-block;
     vertical-align: top;
-    text-align: center;
+    
     line-height: 42px;
+}
+
+#panelPic img{
+    width: 80%;
 }
 
 .range-slider {
