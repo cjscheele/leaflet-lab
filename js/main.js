@@ -2,13 +2,30 @@
 function createMap(){
     //create the map
     var map = L.map('map', {
-        center: [20, 0],
-        zoom: 2
+        center: [20, 10],
+        zoom: 2,
+        minZoom: 2,
+        maxZoom: 10
     });
         
     //Create a tile layer
     L.tileLayer('https://api.mapbox.com/styles/v1/cjscheele/ciz33yu8t00332sprm6kyrjxo/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2pzY2hlZWxlIiwiYSI6ImNpajh4djdscDAwMjB1bWx4Z3c4eGxwZGcifQ.SsInFC_hOJv95SYpnT7w4Q'
     ).addTo(map);
+
+    //Create info button
+    infoPanel();
+    L.easyButton({
+    	id: 'info-button',
+    	position: 'topright',
+    	states:[{
+    		stateName: 'get-info',
+    		onClick: function(button, map){
+      			infoPanel();
+    	},
+    	title: 'About the map',
+    	icon: '<span class="glyphicon glyphicon-info-sign"></span>'
+    }]
+    }).addTo(map);
     
     //call getData function
     getData(map);
@@ -45,7 +62,6 @@ function createPropSymbols(data, map, attributes){
             tokenize: true,
             matchAllTokens: true
     });
-    console.log(fuse);
     var searchControl = new L.Control.Search({
         marker: L.circleMarker([0,0],{radius:0,opacity:0}),
         layer: markerLayer,
@@ -67,7 +83,13 @@ function createPropSymbols(data, map, attributes){
         markerLayer.eachLayer(function(layer) {   //restore feature color
             markerLayer.resetStyle(layer);
         });
-        e.layer.setStyle({fillColor: '#3f0', color: '#0f0'});
+        e.layer.setStyle({
+        	fillColor: '#142827',
+        	color: '#1a3635',
+        	weight: 1,
+        	opacity: 1,
+        	fillOpacity: 0.7
+        });
         if(e.layer._popup)
             e.layer.openPopup();
     }).on('search:collapsed', function(e) {
@@ -85,11 +107,11 @@ function pointToLayer(feature, latlng, attributes){
 
     //create marker options
     var options = {
-        fillColor: "#ff7800",
-        color: "#000",
+        fillColor: "#438785",
+        color: "#1a3635",
         weight: 1,
         opacity: 1,
-        fillOpacity: 0.8
+        fillOpacity: 0.7
     };
 
     //for each feature, determine its value for the selected attribute
@@ -128,6 +150,12 @@ function pointToLayer(feature, latlng, attributes){
     return layer;
 };
 
+function infoPanel(){
+	var content = "<h2>About the map</h2>";
+	content +="<p>Globalization over the past few decades has impacted trade, especially the businesses which facilitate it. Container shipping is an important facete of the global trade netowrk. Over the last decade, the amount of container based exports has been on the rise. To measure the amount of container cargo being shipped from a port, the twenty-foot equivalent unit (TEU) is used to represent the volume of a single container. The map allows you view the world's busiest container ports and compare their changes from 2005 to 2014.</p>"
+    $("#panel").empty().append(content);
+}
+
 function updatePanel(feature){
     var content = "<h1>Port of "+feature.properties.port+"</h1>";
     content += "<div id='panelPic'><img src='"+feature.properties.img+"'></div>";
@@ -165,8 +193,8 @@ function createSequenceControls(map,attributes){
         step: 1
     });
 
-    $('#panel').append('<button class="skip" id="reverse">Reverse</button>');
-    $('#panel').append('<button class="skip" id="forward">Skip</button>');
+    $('#panel').append('<button class="skip glyphicon glyphicon-step-backward" id="reverse"></button>');
+    $('#panel').append('<button class="skip glyphicon glyphicon-step-forward" id="forward"></button>');
 
     //click listener for buttons
     $('.skip').click(function(){

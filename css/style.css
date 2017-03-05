@@ -1,4 +1,16 @@
+@font-face {
+    font-family: cargo;
+    src: url('../fonts/cargo.ttf'); 
+}
+
+#myBody {
+	font-family: Roboto;
+	background-color: #9a8d53;
+}
+
 #mapTitle {
+	font-family: cargo;
+	color: #601b17;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -14,8 +26,6 @@
     padding: 20px;
     display: inline-block;
     vertical-align: top;
-    
-    line-height: 42px;
 }
 
 #panelPic img{
