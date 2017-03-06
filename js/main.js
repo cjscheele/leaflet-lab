@@ -10,7 +10,7 @@ function createMap(){
         //south west
         [-47, -140],
         //north east
-        [66, 154]
+        [66, 170]
         ],
     });
         
@@ -155,7 +155,7 @@ function pointToLayer(feature, latlng, attributes){
 function createPopup(properties, attribute, layer, radius){
     //build popup content string
     var year = attribute.split("total")[1];
-    var popupContent = "<p>"+properties[attribute]+" TEUs</p>";
+    var popupContent = "<p>"+properties[attribute]+" thousand TEUs</p>";
 
     //bind the popup to the circle marker
     layer.bindPopup(popupContent, {
