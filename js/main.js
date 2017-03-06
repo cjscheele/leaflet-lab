@@ -5,7 +5,13 @@ function createMap(){
         center: [20, 10],
         zoom: 2,
         minZoom: 2,
-        maxZoom: 10
+        maxZoom: 10,
+        maxBounds: [
+        //south west
+        [-47, -140],
+        //north east
+        [66, 154]
+        ],
     });
         
     //Create a tile layer
@@ -42,6 +48,7 @@ function getData(map){
 
             createPropSymbols(response, map, attributes);
             createSequenceControls(map, attributes);
+            createLegend(map,attributes);
         }
     });
 };
@@ -79,6 +86,7 @@ function createPropSymbols(data, map, attributes){
             return ret;
         }
     });
+
     searchControl.on('search:locationfound', function(e) {
         markerLayer.eachLayer(function(layer) {   //restore feature color
             markerLayer.resetStyle(layer);
@@ -123,14 +131,8 @@ function pointToLayer(feature, latlng, attributes){
     //create circle marker layer
     var layer = L.circleMarker(latlng, options);
 
-    //build popup content string
-    var year = attribute.split("total")[1];
-    var popupContent = "<p>"+feature.properties[attribute]+" TEUs</p>";
-
-    //bind the popup to the circle marker
-    layer.bindPopup(popupContent, {
-        offset: new L.Point(0,-options.radius) 
-    });
+    //create popup
+    createPopup(feature.properties, attribute, layer, options.radius);
 
     //Add tooltip
     layer.bindTooltip("Port of "+feature.properties.port)
@@ -150,18 +152,29 @@ function pointToLayer(feature, latlng, attributes){
     return layer;
 };
 
+function createPopup(properties, attribute, layer, radius){
+    //build popup content string
+    var year = attribute.split("total")[1];
+    var popupContent = "<p>"+properties[attribute]+" TEUs</p>";
+
+    //bind the popup to the circle marker
+    layer.bindPopup(popupContent, {
+        offset: new L.Point(0,-radius) 
+    });
+}
+
 function infoPanel(){
-	var content = "<h2>About the map</h2>";
-	content +="<p>Globalization over the past few decades has impacted trade, especially the businesses which facilitate it. Container shipping is an important facete of the global trade netowrk. Over the last decade, the amount of container based exports has been on the rise. To measure the amount of container cargo being shipped from a port, the twenty-foot equivalent unit (TEU) is used to represent the volume of a single container. The map allows you view the world's busiest container ports and compare their changes from 2005 to 2014.</p>"
-    $("#panel").empty().append(content);
+	var content = "<div id='panelTitle'>About the map</div>";
+	content +="<p>Globalization over the past few decades has impacted trade, especially the businesses which facilitate it. Container shipping is an important facete of the global trade network. The <a href='http://www.economist.com/news/finance-and-economics/21578041-containers-have-been-more-important-globalisation-freer-trade-humble' target='_blank'>Economist</a> recently declared that, &quot;new research suggests that the container has been more of a driver of globalisation than all trade agreements in the past 50 years together.&quot; To understand how container shipping has impacted trade, this map depicts the world's busiest container ports and compare their changes from 2005 to 2014 using data collected by the <a href='http://www.worldshipping.org/' target='_blank'>World Shipping Council</a>. The twenty-foot equivalent unit (TEU) is the standard unit to measure the amount of cargo being shipped from a port. One TEU represents the approximate volume of a single container. Map design by Chris Scheele.</p>";
+    $("#panel").html(content);
 }
 
 function updatePanel(feature){
-    var content = "<h1>Port of "+feature.properties.port+"</h1>";
-    content += "<div id='panelPic'><img src='"+feature.properties.img+"'></div>";
+    var content = "<div id='panelTitle'>Port of "+feature.properties.port+"</div>";
+    content += "<div id='panelPic'><img src='"+feature.properties.img+"' align='middle'></div>";
     content += "<div id='panelDesc'><p>"+feature.properties.desc+"</p></div>";
     content += "<div id='panelLink'>Source: <a href='"+feature.properties.wiki+"' target='_blank'>Wikipedia</a></div>";
-    $("#panel").empty().append(content);
+    $("#panel").html(content);
 };
 
 function createGraph(feature){
@@ -180,22 +193,156 @@ function calcPropRadius(attValue) {
     return radius;
 };
 
-//Create new sequence controls
-function createSequenceControls(map,attributes){
-    //create range input element (slider)
-    $('#panel').append('<input class="range-slider" type="range">');
+//Create dynamic legend
+function createLegend(map, attributes){
+    var LegendControl = L.Control.extend({
+        options: {
+            position: 'bottomright'
+        },
 
-     //set slider attributes
+        onAdd: function (map) {
+            // create the control container with a particular class name
+            var container = L.DomUtil.create('div', 'legend-control-container');
+
+            //add temporal legend div to container
+            $(container).append('<div id="temporal-legend">')
+
+            //start attribute legend svg string
+            var svg = '<svg id="attribute-legend" width="150px" height="80px">';
+
+            //array of circle names to base loop on
+            var circles = {
+                max: 30,
+                mean: 50,
+                min: 70
+            };
+
+            //loop to add each circle and text to svg string
+            for (var circle in circles){
+                //circle string
+                svg += '<circle class="legend-circle" id="' + circle + '" fill="#438785" fill-opacity="0.7" stroke="#1a3635" cx="40"/>';
+
+                //text string
+                svg += '<text id="' + circle + '-text" x="85" y="' + circles[circle] + '"></text>';
+            };
+            svg += "</svg>";
+
+            //add attribute legend svg to container
+            $(container).append(svg);
+
+            return container;
+        }
+    });
+
+    map.addControl(new LegendControl());
+    updateLegend(map, attributes[0]);
+};
+
+function updateLegend(map, attribute){
+    //create content for legend
+    var year = attribute.split("total")[1];
+    var content = "<h4>Exports in "+ year + "</h4><h6>(in thousand TEUs)</h6>";
+
+    //replace legend content
+    $('#temporal-legend').html(content);
+
+    //get the max, mean, and min values as an object
+    var circleValues = getCircleValues(map, attribute);
+
+    for (var key in circleValues){
+        //get the radius
+        var radius = calcPropRadius(circleValues[key]);
+
+        //assign the cy and r attributes
+        $('#'+key).attr({
+            cy: 75 - radius,
+            r: radius
+        });
+
+        //add legend text
+        $('#'+key+'-text').text(Math.round(circleValues[key]));
+    };
+};
+
+//Calculate the max, mean, and min values for a given attribute
+function getCircleValues(map, attribute){
+    //start with min at highest possible and max at lowest possible number
+    var min = Infinity,
+        max = -Infinity;
+
+    map.eachLayer(function(layer){
+        //get the attribute value
+        if (layer.feature){
+            var attributeValue = Number(layer.feature.properties[attribute]);
+
+            //test for min
+            if (attributeValue < min){
+                min = attributeValue;
+            };
+
+            //test for max
+            if (attributeValue > max){
+                max = attributeValue;
+            };
+        };
+    });
+
+    //set mean
+    var mean = (max + min) / 2;
+
+    //return values as an object
+    return {
+        max: max,
+        mean: mean,
+        min: min
+    };
+};
+
+//Create new sequence controls
+function createSequenceControls(map, attributes){   
+    var SequenceControl = L.Control.extend({
+        options: {
+            position: 'bottomleft'
+        },
+
+        onAdd: function (map) {
+            // create the control container div with a particular class name
+            var container = L.DomUtil.create('div', 'sequence-control-container');
+
+            //create range input and skip buttons
+            $(container).append('<button class="skip glyphicon glyphicon-step-backward" id="reverse"></button>');
+            $(container).append('<input id="rangeSlider" class="range-slider" type="range">');
+            $(container).append('<button class="skip glyphicon glyphicon-step-forward" id="forward"></button>');
+
+            //kill any mouse event listeners on the map
+            $(container).on('mousedown dblclick', function(e){
+                L.DomEvent.stopPropagation(e);
+            });
+
+            // Disable dragging when user's cursor enters the element
+            $(container).on('mouseover', function () {
+                map.dragging.disable();
+            });
+
+            // Re-enable dragging when user's cursor leaves the element
+            $(container).on('mouseout', function () {
+                map.dragging.enable();
+            });
+
+            return container;
+        }
+    });
+
+    map.addControl(new SequenceControl());
+
+    //set slider attributes
     $('.range-slider').attr({
         max: 10,
         min: 0,
         value: 0,
         step: 1
     });
-
-    $('#panel').append('<button class="skip glyphicon glyphicon-step-backward" id="reverse"></button>');
-    $('#panel').append('<button class="skip glyphicon glyphicon-step-forward" id="forward"></button>');
-
+    
     //click listener for buttons
     $('.skip').click(function(){
         //get the old index value
@@ -223,7 +370,7 @@ function createSequenceControls(map,attributes){
         var index = $(this).val();
         updatePropSymbols(map, attributes[index]);
     });
-};
+}
 
 //Resize proportional symbols according to new attribute values
 function updatePropSymbols(map, attribute){
@@ -236,14 +383,11 @@ function updatePropSymbols(map, attribute){
             var radius = calcPropRadius(props[attribute]);
             layer.setRadius(radius);
 
-            //add city to popup content string
-            var year = attribute.split("total");
-            var popupContent = "<p>"+layer.feature.properties[attribute]+" TEUs</p>";
+            //update popup
+            createPopup(props, attribute, layer, radius);
 
-            //replace the layer popup
-            layer.setPopupContent(popupContent, {
-                offset: new L.Point(0,-radius)
-            });
+            //update legend
+            updateLegend(map, attribute);
         };
     });
 };

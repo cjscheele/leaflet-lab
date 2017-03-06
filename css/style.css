@@ -22,18 +22,23 @@
     display: inline-block;
 }
 
-#panel {
-    padding: 20px;
-    display: inline-block;
-    vertical-align: top;
+.legend-control-container {
+    background-color: rgba(255,255,255,0.8);
+    text-align: center;
+    border: solid gray 1px;
 }
 
-#panelPic img{
-    width: 80%;
+.sequence-control-container {
+    width: 200px;
+    height: 30px;
+    background-color: rgba(255,255,255,0.8);
+    text-align: center;
+    border: solid gray 1px;
 }
 
-.range-slider {
+#rangeSlider {
     width: 50%;
+    display: inline-block;
 }
 
 #forward {
@@ -42,6 +47,30 @@
 
 #reverse {
     float: left;
+}
+
+#panel {
+    padding: 0px 20px;
+    max-height: 500px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#panelTitle {
+    text-align: center;
+    padding: 0;
+    font-weight: 500;
+    font-size: 32px;
+}
+
+#panelPic img {
+    width: 80%;
+    display: block;
+    margin: auto;
+}
+
+#panel p {
+    font-family:Bitter;
 }
 
 .leaflet-popup-content p {
