@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 20.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 87.8 102.8" style="enable-background:new 0 0 87.8 102.8;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#254567;}
+	.st1{fill:#636363;}
+	.st2{fill:#EAB100;}
+	.st3{fill:#0D12EE;}
+	.st4{fill:#16A100;}
+	.st5{fill:#B41C1C;}
+</style>
+<g>
+	<path class="st0" d="M85.6,101.7c0.6,0,1-0.5,1-1s-0.5-1-1-1H70.9l-2,2.1L85.6,101.7L85.6,101.7z"/>
+	<path class="st0" d="M2,99.6c-0.6,0-1,0.5-1,1s0.5,1,1,1h16.7l-2-2.1L2,99.6L2,99.6z"/>
+	<path d="M44.8,2.7c0-0.6-0.5-1-1-1s-1,0.5-1,1v11.8h2V2.7z"/>
+	<path d="M5.4,84.5l16.2,17.2h44.5l16.1-17.2C69.9,88.1,56.8,90,43.8,90S17.7,88.1,5.4,84.5z"/>
+	<path d="M57.7,66.9H43.8H29.9h-14H3v14.7c26,8.4,55.6,8.4,81.6,0V66.9H71.7H57.7z"/>
+	<rect x="3" y="43.6" class="st1" width="11.9" height="9.6"/>
+	<rect x="17" y="43.6" class="st2" width="11.9" height="9.6"/>
+	<rect x="30.9" y="43.6" class="st3" width="11.9" height="9.6"/>
+	<rect x="44.8" y="43.6" class="st4" width="11.9" height="9.6"/>
+	<rect x="58.8" y="43.6" class="st2" width="11.9" height="9.6"/>
+	<rect x="72.7" y="43.6" class="st5" width="11.9" height="9.6"/>
+	<rect x="3" y="55.2" class="st3" width="11.9" height="9.6"/>
+	<rect x="17" y="55.2" class="st5" width="11.9" height="9.6"/>
+	<rect x="30.9" y="55.2" class="st1" width="11.9" height="9.6"/>
+	<rect x="44.8" y="55.2" class="st2" width="11.9" height="9.6"/>
+	<rect x="58.8" y="55.2" class="st3" width="11.9" height="9.6"/>
+	<rect x="72.7" y="55.2" class="st4" width="11.9" height="9.6"/>
+	<rect x="17" y="31.9" class="st4" width="11.9" height="9.6"/>
+	<rect x="30.9" y="31.9" class="st5" width="11.9" height="9.6"/>
+	<rect x="44.8" y="31.9" class="st1" width="11.9" height="9.6"/>
+	<rect x="58.8" y="31.9" class="st3" width="11.9" height="9.6"/>
+	<polygon points="56.7,29.8 56.7,23.2 56.7,16.6 30.9,16.6 30.9,23.2 30.9,29.8 43.8,29.8 	"/>
+	<path d="M28.8,16.6h-4.9c-1,0-1.4,1.4-0.5,1.9l5.4,2.9V16.6z"/>
+	<path d="M58.8,16.6v4.8l5.4-2.9c0.9-0.5,0.6-1.9-0.5-1.9C63.7,16.6,58.8,16.6,58.8,16.6z"/>
+</g>
+</svg>

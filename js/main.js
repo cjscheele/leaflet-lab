@@ -8,14 +8,14 @@ function createMap(){
         maxZoom: 10,
         maxBounds: [
         //south west
-        [-47, -140],
+        [-47, -152],
         //north east
         [66, 170]
         ],
     });
         
     //Create a tile layer
-    L.tileLayer('https://api.mapbox.com/styles/v1/cjscheele/ciz33yu8t00332sprm6kyrjxo/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2pzY2hlZWxlIiwiYSI6ImNpajh4djdscDAwMjB1bWx4Z3c4eGxwZGcifQ.SsInFC_hOJv95SYpnT7w4Q'
+    L.tileLayer('https://api.mapbox.com/styles/v1/cjscheele/ciz33yu8t00332sprm6kyrjxo/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2pzY2hlZWxlIiwiYSI6ImNpajh4djdscDAwMjB1bWx4Z3c4eGxwZGcifQ.SsInFC_hOJv95SYpnT7w4Q', {attribution: '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'}
     ).addTo(map);
 
     //Create info button
@@ -46,6 +46,7 @@ function getData(map){
             //create an attributes array
             var attributes = ["total2005","total2006","total2007","total2008","total2009","total2010","total2011","total2012","total2013","total2014"]
 
+            //Create prop symbols, sequence control and legend
             createPropSymbols(response, map, attributes);
             createSequenceControls(map, attributes);
             createLegend(map,attributes);
@@ -63,12 +64,15 @@ function createPropSymbols(data, map, attributes){
     }).addTo(map);
 
     //Initialize Search Control
+    //Fuzzy search plugin parameters
     var fuse = new Fuse(data.features, {
             keys: ['properties.port','properties.country'],
             threshold:.2,
             tokenize: true,
             matchAllTokens: true
     });
+    
+    //Search control parameters
     var searchControl = new L.Control.Search({
         marker: L.circleMarker([0,0],{radius:0,opacity:0}),
         layer: markerLayer,
@@ -92,11 +96,11 @@ function createPropSymbols(data, map, attributes){
             markerLayer.resetStyle(layer);
         });
         e.layer.setStyle({
-        	fillColor: '#142827',
-        	color: '#1a3635',
+        	fillColor: '#601b17',
+        	color: '#39100d',
         	weight: 1,
         	opacity: 1,
-        	fillOpacity: 0.7
+        	fillOpacity: 0.8
         });
         if(e.layer._popup)
             e.layer.openPopup();
@@ -135,7 +139,7 @@ function pointToLayer(feature, latlng, attributes){
     createPopup(feature.properties, attribute, layer, options.radius);
 
     //Add tooltip
-    layer.bindTooltip("Port of "+feature.properties.port)
+    layer.bindTooltip("Port of "+feature.properties.port,{className: 'tooltip'})
 
     //event listeners to open popup on hover
     layer.on({
@@ -152,10 +156,23 @@ function pointToLayer(feature, latlng, attributes){
     return layer;
 };
 
+//Calculate the radius of each proportional symbol
+function calcPropRadius(attValue) {
+    //scale factor to adjust symbol size evenly
+    var scaleFactor = .08;
+    //area based on attribute value and scale factor
+    var area = attValue * scaleFactor;
+    //radius calculated based on area
+    var radius = Math.sqrt(area/Math.PI);
+
+    return radius;
+};
+
+//Creates an info popup
 function createPopup(properties, attribute, layer, radius){
     //build popup content string
     var year = attribute.split("total")[1];
-    var popupContent = "<p>"+properties[attribute]+" thousand TEUs</p>";
+    var popupContent = "<h5><strong>-"+year+"-</strong></h5><h6>"+properties[attribute]+" thousand TEUs</h6>";
 
     //bind the popup to the circle marker
     layer.bindPopup(popupContent, {
@@ -163,34 +180,20 @@ function createPopup(properties, attribute, layer, radius){
     });
 }
 
+//Updates the panel with the about information
 function infoPanel(){
-	var content = "<div id='panelTitle'>About the map</div>";
-	content +="<p>Globalization over the past few decades has impacted trade, especially the businesses which facilitate it. Container shipping is an important facete of the global trade network. The <a href='http://www.economist.com/news/finance-and-economics/21578041-containers-have-been-more-important-globalisation-freer-trade-humble' target='_blank'>Economist</a> recently declared that, &quot;new research suggests that the container has been more of a driver of globalisation than all trade agreements in the past 50 years together.&quot; To understand how container shipping has impacted trade, this map depicts the world's busiest container ports and compare their changes from 2005 to 2014 using data collected by the <a href='http://www.worldshipping.org/' target='_blank'>World Shipping Council</a>. The twenty-foot equivalent unit (TEU) is the standard unit to measure the amount of cargo being shipped from a port. One TEU represents the approximate volume of a single container. Map design by Chris Scheele.</p>";
+	var content = "<div id='panelTitle'><h2>About the map</h2></div>";
+	content +="<p>Globalization over the past few decades has impacted trade, especially the businesses which facilitate it. Container shipping is an important facete of the global trade network. The <a href='http://www.economist.com/news/finance-and-economics/21578041-containers-have-been-more-important-globalisation-freer-trade-humble' target='_blank'>Economist</a> recently declared that, &quot;new research suggests that the container has been more of a driver of globalisation than all trade agreements in the past 50 years together.&quot; This map depicts the world's busiest container ports based on export volume and allows you to compare their changes from 2005 to 2014 using data collected by the <a href='http://www.worldshipping.org/' target='_blank'>World Shipping Council</a>. The twenty-foot equivalent unit (TEU) is the standard unit to measure the amount of cargo being shipped from a port. One TEU represents the approximate volume of a single container. Map design by Chris Scheele. Ship icon by Symbolon. Anchor icon by Gregor Cresnar.</p>";
     $("#panel").html(content);
 }
 
+//Update the panel with port information
 function updatePanel(feature){
-    var content = "<div id='panelTitle'>Port of "+feature.properties.port+"</div>";
+    var content = "<div id='panelTitle'><h2><img src='../images/anchor.png'>Port of "+feature.properties.port+"<img src='../images/"+feature.properties.country+".svg'></h2></div>";
     content += "<div id='panelPic'><img src='"+feature.properties.img+"' align='middle'></div>";
     content += "<div id='panelDesc'><p>"+feature.properties.desc+"</p></div>";
     content += "<div id='panelLink'>Source: <a href='"+feature.properties.wiki+"' target='_blank'>Wikipedia</a></div>";
     $("#panel").html(content);
-};
-
-function createGraph(feature){
-    var avg = [5475.444444,6107.422222,6929.044444,7337.066667,6680.844444,7660.244444,8291.733333,8651.177778,8926.044444,9231.977778];
-}
-
-//Calculate the radius of each proportional symbol
-function calcPropRadius(attValue) {
-    //scale factor to adjust symbol size evenly
-    var scaleFactor = .1;
-    //area based on attribute value and scale factor
-    var area = attValue * scaleFactor;
-    //radius calculated based on area
-    var radius = Math.sqrt(area/Math.PI);
-
-    return radius;
 };
 
 //Create dynamic legend
@@ -208,13 +211,13 @@ function createLegend(map, attributes){
             $(container).append('<div id="temporal-legend">')
 
             //start attribute legend svg string
-            var svg = '<svg id="attribute-legend" width="150px" height="80px">';
+            var svg = '<svg id="attribute-legend" width="135px" height="70px">';
 
             //array of circle names to base loop on
             var circles = {
-                max: 30,
-                mean: 50,
-                min: 70
+                max: 25,
+                mean: 45,
+                min: 65
             };
 
             //loop to add each circle and text to svg string
@@ -241,7 +244,7 @@ function createLegend(map, attributes){
 function updateLegend(map, attribute){
     //create content for legend
     var year = attribute.split("total")[1];
-    var content = "<h4>Exports in "+ year + "</h4><h6>(in thousand TEUs)</h6>";
+    var content = "<h4><strong>Exports in "+ year + "</strong></h4><h5>(in thousand TEUs)</h5>";
 
     //replace legend content
     $('#temporal-legend').html(content);
@@ -255,7 +258,7 @@ function updateLegend(map, attribute){
 
         //assign the cy and r attributes
         $('#'+key).attr({
-            cy: 75 - radius,
+            cy: 68 - radius,
             r: radius
         });
 
@@ -308,6 +311,7 @@ function createSequenceControls(map, attributes){
         onAdd: function (map) {
             // create the control container div with a particular class name
             var container = L.DomUtil.create('div', 'sequence-control-container');
+            container.title = "Sequence through years";
 
             //create range input and skip buttons
             $(container).append('<button class="skip glyphicon glyphicon-step-backward" id="reverse"></button>');
@@ -322,6 +326,7 @@ function createSequenceControls(map, attributes){
             // Disable dragging when user's cursor enters the element
             $(container).on('mouseover', function () {
                 map.dragging.disable();
+
             });
 
             // Re-enable dragging when user's cursor leaves the element
