@@ -189,7 +189,7 @@ function infoPanel(){
 
 //Update the panel with port information
 function updatePanel(feature){
-    var content = "<div id='panelTitle'><h2><img src='../images/anchor.png'>Port of "+feature.properties.port+"<img src='../images/"+feature.properties.country+".svg'></h2></div>";
+    var content = "<div id='panelTitle'><h2><img src='images/anchor.png'>Port of "+feature.properties.port+"<img src='images/"+feature.properties.country+".svg'></h2></div>";
     content += "<div id='panelPic'><img src='"+feature.properties.img+"' align='middle'></div>";
     content += "<div id='panelDesc'><p>"+feature.properties.desc+"</p></div>";
     content += "<div id='panelLink'>Source: <a href='"+feature.properties.wiki+"' target='_blank'>Wikipedia</a></div>";
